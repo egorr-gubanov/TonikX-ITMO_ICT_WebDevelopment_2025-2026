@@ -1,7 +1,11 @@
 site_name: ЖК Коннект - API Документация
 site_description: Информационная система для автоматизации работы Управляющей Компании ЖК
 site_author: Губанов Егор
-site_url: https://example.com
+site_url: https://egorr-gubanov.github.io/TonikX-ITMO_ICT_WebDevelopment_2025-2026/Lr3/ResidentalConnect/
+
+repo_name: egorr-gubanov/TonikX-ITMO_ICT_WebDevelopment_2025-2026
+repo_url: https://github.com/egorr-gubanov/TonikX-ITMO_ICT_WebDevelopment_2025-2026
+copyright: Copyright &copy; 2024 Губанов Егор
 
 theme:
   name: material
@@ -56,4 +60,12 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+
+# GitHub Pages configuration
+use_directory_urls: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/egorr-gubanov
 
