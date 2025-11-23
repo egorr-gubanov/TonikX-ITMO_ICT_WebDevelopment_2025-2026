@@ -7,6 +7,10 @@ on:
     paths:
       - 'Lr3/ResidentalConnect/docs/**'
       - 'Lr3/ResidentalConnect/mkdocs.yml'
+      - 'Lr3/Task1/docs/**'
+      - 'Lr3/Task1/mkdocs.yml'
+      - 'Lr3/Task2/docs/**'
+      - 'Lr3/Task2/mkdocs.yml'
       - '.github/workflows/lr3-docs.yml'
   workflow_dispatch:
 
@@ -27,22 +31,42 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install dependencies for ResidentalConnect
         run: |
           cd Lr3/ResidentalConnect
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build documentation
+      - name: Build ResidentalConnect documentation
         run: |
           cd Lr3/ResidentalConnect
           mkdocs build
 
-      - name: Deploy to GitHub Pages
+      - name: Install dependencies for Task1
+        run: |
+          cd Lr3/Task1
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build Task1 documentation
+        run: |
+          cd Lr3/Task1
+          mkdocs build
+
+      - name: Install dependencies for Task2
+        run: |
+          cd Lr3/Task2
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build Task2 documentation
+        run: |
+          cd Lr3/Task2
+          mkdocs build
+
+      - name: Deploy all documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Lr3/ResidentalConnect/site
-          destination_dir: Lr3/ResidentalConnect
+          publish_dir: ./Lr3
           keep_files: true
-
