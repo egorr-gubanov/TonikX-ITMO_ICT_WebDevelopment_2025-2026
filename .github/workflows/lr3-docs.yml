@@ -66,11 +66,24 @@ jobs:
 
       - name: Prepare deployment directory
         run: |
-          mkdir -p deploy
+          mkdir -p deploy/Lr3
           # Копируем собранные сайты в единую структуру
-          cp -r students/k3340/Gubanov_Egor/Lr3/ResidentalConnect/site deploy/ResidentalConnect
-          cp -r students/k3340/Gubanov_Egor/Lr3/Task1/site deploy/Task1
-          cp -r students/k3340/Gubanov_Egor/Lr3/Task2/site deploy/Task2
+          cp -r students/k3340/Gubanov_Egor/Lr3/ResidentalConnect/site deploy/Lr3/ResidentalConnect
+          cp -r students/k3340/Gubanov_Egor/Lr3/Task1/site deploy/Lr3/Task1
+          cp -r students/k3340/Gubanov_Egor/Lr3/Task2/site deploy/Lr3/Task2
+          # Создаем index.html в корне для редиректа
+          cat > deploy/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <meta http-equiv="refresh" content="0; url=./Lr3/ResidentalConnect/">
+              <title>Redirecting...</title>
+          </head>
+          <body>
+              <p>Redirecting to <a href="./Lr3/ResidentalConnect/">documentation</a>...</p>
+          </body>
+          </html>
+          EOF
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
