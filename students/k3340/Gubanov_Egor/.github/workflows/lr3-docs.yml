@@ -64,9 +64,18 @@ jobs:
           cd Lr3/Task2
           mkdocs build
 
+      - name: Prepare deployment directory
+        run: |
+          mkdir -p deploy
+          # Копируем собранные сайты в единую структуру
+          cp -r Lr3/ResidentalConnect/site deploy/ResidentalConnect
+          cp -r Lr3/Task1/site deploy/Task1
+          cp -r Lr3/Task2/site deploy/Task2
+
       - name: Deploy all documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Lr3
+          publish_dir: ./deploy
+          destination_dir: Lr3
           keep_files: true
