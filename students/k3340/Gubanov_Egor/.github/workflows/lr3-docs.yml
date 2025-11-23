@@ -1,5 +1,6 @@
 name: Deploy Lr3 MkDocs Documentation
 
+# Workflow для автоматического деплоя документации на GitHub Pages
 on:
   push:
     branches:
