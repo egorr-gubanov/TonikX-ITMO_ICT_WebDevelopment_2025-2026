@@ -4,14 +4,6 @@ on:
   push:
     branches:
       - gubanov-egorr-lr3
-    paths:
-      - 'Lr3/ResidentalConnect/docs/**'
-      - 'Lr3/ResidentalConnect/mkdocs.yml'
-      - 'Lr3/Task1/docs/**'
-      - 'Lr3/Task1/mkdocs.yml'
-      - 'Lr3/Task2/docs/**'
-      - 'Lr3/Task2/mkdocs.yml'
-      - '.github/workflows/lr3-docs.yml'
   workflow_dispatch:
 
 permissions:
